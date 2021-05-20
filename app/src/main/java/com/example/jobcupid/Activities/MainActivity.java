@@ -30,7 +30,7 @@ public class MainActivity extends BaseMenuActivity {
 
     private void setToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Shorts");
+        toolbar.setTitle("JobCupid");
         setSupportActionBar(toolbar);
 //        getSupportActionBar().setHomeAsUpIndicator(R.mipmap.icon);// set drawable icon
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
