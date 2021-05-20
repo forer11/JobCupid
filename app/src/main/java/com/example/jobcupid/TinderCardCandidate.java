@@ -72,7 +72,7 @@ public class TinderCardCandidate {
             salaryText.append("Not mentioned");
         }
         locationText.append(mProfile.getLocation());
-        ageText.append(mProfile.getAge());
+        ageText.append(String.valueOf(mProfile.getAge()));
     }
 
     @SwipeOut

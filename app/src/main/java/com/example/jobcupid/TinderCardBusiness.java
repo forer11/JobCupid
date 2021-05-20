@@ -45,7 +45,7 @@ public class TinderCardBusiness {
     private TextView locationText;
 
     @View(R.id.age)
-    private int ageText;
+    private TextView ageText;
 
     private Candidate mProfile;
     private Context mContext;
@@ -72,6 +72,7 @@ public class TinderCardBusiness {
             salaryText.append("Not mentioned");
         }
         locationText.append(mProfile.getLocation());
+        ageText.append(String.valueOf(mProfile.getAge()));
     }
 
     @SwipeOut
