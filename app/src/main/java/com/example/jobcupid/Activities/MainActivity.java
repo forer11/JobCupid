@@ -5,12 +5,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.jobcupid.Profile;
+import com.example.jobcupid.Candidate;
 import com.example.jobcupid.R;
 import com.example.jobcupid.TinderCard;
 import com.example.jobcupid.Utils;
@@ -48,9 +47,14 @@ public class MainActivity extends BaseMenuActivity {
                         .setSwipeOutMsgLayoutId(R.layout.tinder_swipe_out_msg_view));
 
 
-        for(Profile profile : Utils.loadProfiles(this.getApplicationContext())){
+        for(Candidate profile : Utils.loadCandidates(this.getApplicationContext())){
             mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView));
         }
+//
+//        for(Candidate profile : Utils.loadBusinesses(this.getApplicationContext())){
+//            mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView));
+//        }
+
 
         profileImage = mSwipeView.findViewById(R.id.profile_image);
 
