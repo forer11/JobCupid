@@ -35,12 +35,6 @@ public class TinderCardCandidate {
     @View(R.id.jobPercentage)
     private TextView jobPercentageText;
 
-    @View(R.id.previousExperience)
-    private TextView previousExperienceText;
-
-    @View(R.id.salary)
-    private TextView salaryText;
-
     @View(R.id.location)
     private TextView locationText;
 
@@ -65,12 +59,6 @@ public class TinderCardCandidate {
         phoneText.append(mProfile.getPhone().toString());
         jobTitleText.append(mProfile.getJobTitle());
         jobPercentageText.append(mProfile.getJobPercentage());
-        if(mProfile.getPreviousExperience() == null){
-            previousExperienceText.append("Not mentioned");
-        }
-        if(mProfile.getSalary() == null) {
-            salaryText.append("Not mentioned");
-        }
         locationText.append(mProfile.getLocation());
         ageText.append(String.valueOf(mProfile.getAge()));
     }
