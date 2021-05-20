@@ -2,17 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/search_bar"
-        android:icon="@drawable/ic_search_black_24dp"
-        android:iconTint="#80DEEA"
-        app:showAsAction="always|collapseActionView"
-        app:actionViewClass="androidx.appcompat.widget.SearchView"
-        android:title="Search">
-    </item>
-    <item
         android:id="@+id/profile"
         app:showAsAction="always"
         android:title="Profile"
         app:actionLayout="@layout/profile_manu_layout">
+    </item>
+    <item
+        android:id="@+id/search_bar"
+        android:icon="@mipmap/chat_white"
+        app:showAsAction="always"
+        android:title="Chats">
     </item>
 </menu>

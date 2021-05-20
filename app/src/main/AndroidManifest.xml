@@ -13,17 +13,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activities.CandidateActivity"></activity>
+        <activity android:name=".Activities.ChatActivity"></activity>
+        <activity android:name=".Activities.MessageActivity"></activity>
         <activity android:name=".Activities.MainActivity" />
         <activity
             android:name=".Activities.OpeningScreenActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".Activities.BaseMenuActivity" />
+
         <activity
             android:name=".Activities.LoginActivity"
             android:theme="@style/LoginTheme"></activity>
@@ -31,6 +34,9 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+            android:theme="@style/LoginTheme">
+        </activity>
+
     </application>
 
 </manifest>
