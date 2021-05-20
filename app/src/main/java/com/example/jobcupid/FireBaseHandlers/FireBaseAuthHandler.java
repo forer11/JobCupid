@@ -4,6 +4,7 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
+import com.example.jobcupid.AppData;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -31,6 +32,10 @@ public class FireBaseAuthHandler {
             @Override
             public void onIdTokenChanged(@NonNull FirebaseAuth firebaseAuth) {
                 user = FirebaseAuth.getInstance().getCurrentUser();
+                if (user != null) {
+                    AppData appData = (AppData) context.getApplicationContext();
+                    appData.fireStoreHandler.setUserKey(appData.fireBaseAuthHandler.user);
+                }
             }
         };
         firebaseAuth.addIdTokenListener(userListener);

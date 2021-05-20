@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.jobcupid.AppData;
+import com.example.jobcupid.FireBaseHandlers.FireStoreHandler;
 import com.example.jobcupid.R;
 import com.facebook.CallbackManager;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -32,9 +33,12 @@ public class LoginActivity extends AppCompatActivity {
     private static final String EMAIL = "email";
     private String TAG = "LoginActivity";
     private int RC_SIGN_IN = 1;
+    public static final String CANDIDATE = "candidate";
+    public static final String BUSINESS_OWNER = "business owner";
 
     AppData appData;
     FirebaseAuth firebaseAuth;
+    FireStoreHandler fireStoreHandler;
     private CallbackManager callbackManager;
 
     @Override
@@ -44,7 +48,6 @@ public class LoginActivity extends AppCompatActivity {
 
         getAppData();
         setViews();
-
         // If you are using in a fragment, call loginButton.setFragment(this);
 
         // Callback registration
@@ -74,6 +77,7 @@ public class LoginActivity extends AppCompatActivity {
     private void getAppData() {
         appData = (AppData) getApplicationContext();
         firebaseAuth = appData.fireBaseAuthHandler.firebaseAuth;
+        fireStoreHandler = appData.fireStoreHandler;
     }
 
     private void signIn() {
@@ -127,9 +131,18 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void goToMainScreen() {
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent);
-        finish();
+        fireStoreHandler.getUserCategory(new FireStoreHandler.FireStoreUserCategoryCallback() {
+            @Override
+            public void onCallBack(String userCategory, Boolean success) {
+                Intent intent;
+                if (userCategory.equals(BUSINESS_OWNER)) {
+                    intent = new Intent(getApplicationContext(), MainActivity.class);
+                } else {
+                    intent = new Intent(getApplicationContext(), CandidateActivity.class);
+                }                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void setAnimation() {

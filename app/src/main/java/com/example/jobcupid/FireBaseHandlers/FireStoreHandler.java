@@ -26,7 +26,7 @@ public class FireStoreHandler {
     private static final String USERS = "Users";
     private static final String ICONS = "Icons";
     private static final String SHORTCUTS = "Shortcuts";
-
+    public static final String CATEGORY = "category";
 
 
     private FirebaseFirestore db;
@@ -76,6 +76,7 @@ public class FireStoreHandler {
                     });
         }
     }
+
 
 //    public void loadIcons(final ArrayList<Icon> icons) {
 //        if (!iconsLoaded) {
@@ -179,6 +180,31 @@ public class FireStoreHandler {
 //                });
 //    }
 //
+
+    public void getUserCategory(final FireStoreUserCategoryCallback callback) {
+        usersRef.document(userKey).get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        String userCategory = documentSnapshot.getString(CATEGORY);
+                        if (userCategory != null) {
+                            callback.onCallBack(userCategory, true);
+                        } else {
+                            callback.onCallBack(null, false);
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        callback.onCallBack(null, false);
+                    }
+                });
+    }
+
+    public interface FireStoreUserCategoryCallback {
+        void onCallBack(String userCategory, Boolean success);
+    }
 
 //    public interface FireStoreCallback {
 //        void onCallBack(ArrayList<Shortcut> shortcutsList, Boolean success);

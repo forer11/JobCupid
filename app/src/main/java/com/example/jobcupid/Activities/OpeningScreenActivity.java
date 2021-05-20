@@ -7,8 +7,11 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.jobcupid.AppData;
+import com.example.jobcupid.FireBaseHandlers.FireStoreHandler;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import static com.example.jobcupid.Activities.LoginActivity.BUSINESS_OWNER;
 
 public class OpeningScreenActivity extends AppCompatActivity {
     AppData appData;
@@ -26,11 +29,25 @@ public class OpeningScreenActivity extends AppCompatActivity {
     private void checkLoginStatus(FirebaseUser currentUser) {
         Intent intent;
         if (currentUser != null) {
-            intent = new Intent(getApplicationContext(), CandidatePage.class);
-            startActivity(intent);
+            FireStoreHandler fireStoreHandler = appData.fireStoreHandler;
+            appData.fireStoreHandler.setUserKey(currentUser);
+            fireStoreHandler.getUserCategory(new FireStoreHandler.FireStoreUserCategoryCallback() {
+                @Override
+                public void onCallBack(String userCategory, Boolean success) {
+                    Intent intent;
+                    if (userCategory.equals(BUSINESS_OWNER)) {
+                        intent = new Intent(getApplicationContext(), MainActivity.class);
+                    } else {
+                        intent = new Intent(getApplicationContext(), CandidateActivity.class);
+                    }
+                    startActivity(intent);
+                    finish();
+                }
+            });
         } else {
             intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
+            finish();
         }
     }
 
@@ -43,7 +60,6 @@ public class OpeningScreenActivity extends AppCompatActivity {
     private void openNextActivity() {
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
         checkLoginStatus(currentUser);
-        finish();
     }
 
 
