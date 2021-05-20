@@ -168,7 +168,7 @@
     <color name="text_shadow_white">#FFFFFF</color>
     <color name="background">#81d4fa</color>
     <color name="primaryColor">#311b92</color>
-
+    <color name="grey">#e5e5e5</color>
     <color name="primaryLightColor">#6746c3</color>
 
     <color name="primaryDarkColor">#000063</color>
