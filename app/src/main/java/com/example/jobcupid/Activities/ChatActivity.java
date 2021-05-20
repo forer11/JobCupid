@@ -12,6 +12,9 @@ import com.stfalcon.chatkit.sample.features.demo.def.model.DialogsFixtures;
 import com.stfalcon.chatkit.sample.features.demo.def.model.Message;
 
 import com.stfalcon.chatkit.sample.features.demo.DemoDialogsActivity;
+import com.stfalcon.chatkit.sample.features.demo.def.model.User;
+
+import java.util.ArrayList;
 
 public class ChatActivity extends DemoDialogsActivity {
 
@@ -39,12 +42,20 @@ public class ChatActivity extends DemoDialogsActivity {
 
     private void initAdapter() {
         super.dialogsAdapter = new DialogsListAdapter<>(super.imageLoader);
-        super.dialogsAdapter.setItems(DialogsFixtures.getDialogs());
+//        super.dialogsAdapter.setItems(DialogsFixtures.getDialogs());
 
         super.dialogsAdapter.setOnDialogClickListener(this);
         super.dialogsAdapter.setOnDialogLongClickListener(this);
 
         dialogsList.setAdapter(super.dialogsAdapter);
+
+        /// add dialog
+        User user = new User("bla", "hey", "lala", true);
+        ArrayList<User> users = new ArrayList<>();
+        users.add(user);
+        Message msg = new Message("msg1", user, "Hi! We have a position that looks just for you, do you want to chat and hear more details?");
+        Dialog dialog = new Dialog("1", "Mcdonalds", "hh", users, msg, 1);
+        onNewDialog(dialog);
     }
 
     //for example
