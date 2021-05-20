@@ -1,6 +1,7 @@
 package com.example.jobcupid.Activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -65,6 +66,15 @@ public class MainActivity extends BaseMenuActivity {
             @Override
             public void onClick(View v) {
                 mSwipeView.doSwipe(true);
+            }
+        });
+
+        findViewById(R.id.chatBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this.getBaseContext(),
+                        ChatActivity.class);
+                MainActivity.this.startActivity(intent);
             }
         });
     }
