@@ -2,7 +2,6 @@ package com.example.jobcupid;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -16,23 +15,40 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeInState;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 @Layout(R.layout.tinder_card_view)
 public class TinderCard {
 
     @View(R.id.profile_image)
-    private ImageView profileImageView;
+    private CircleImageView profileImageView;
 
-    @View(R.id.nameAgeTxt)
-    private TextView nameAgeTxt;
+    @View(R.id.name)
+    private TextView nameText;
 
-    @View(R.id.locationNameTxt)
-    private TextView locationNameTxt;
+    @View(R.id.phone)
+    private TextView phoneText;
 
-    private Profile mProfile;
+    @View(R.id.jobTitle)
+    private TextView jobTitleText;
+
+    @View(R.id.jobPercentage)
+    private TextView jobPercentageText;
+
+    @View(R.id.previousExperience)
+    private TextView previousExperienceText;
+
+    @View(R.id.salary)
+    private TextView salaryText;
+
+    @View(R.id.location)
+    private TextView locationText;
+
+    private Candidate mProfile;
     private Context mContext;
     private SwipePlaceHolderView mSwipeView;
 
-    public TinderCard(Context context, Profile profile, SwipePlaceHolderView swipeView) {
+    public TinderCard(Context context, Candidate profile, SwipePlaceHolderView swipeView) {
         mContext = context;
         mProfile = profile;
         mSwipeView = swipeView;
@@ -41,8 +57,18 @@ public class TinderCard {
     @Resolve
     private void onResolved(){
         Glide.with(mContext).load(mProfile.getImageUrl()).into(profileImageView);
-        nameAgeTxt.setText(mProfile.getName() + ", " + mProfile.getAge());
-        locationNameTxt.setText(mProfile.getLocation());
+        nameText.setText(mProfile.getName());
+
+        phoneText.append(mProfile.getPhone().toString());
+        jobTitleText.append(mProfile.getJobTitle());
+        jobPercentageText.append(mProfile.getJobPercentage());
+        if(mProfile.getPreviousExperience() == null){
+            previousExperienceText.append("Not mentioned");
+        }
+        if(mProfile.getSalary() == null) {
+            salaryText.append("Not mentioned");
+        }
+        locationText.append(mProfile.getLocation());
     }
 
     @SwipeOut

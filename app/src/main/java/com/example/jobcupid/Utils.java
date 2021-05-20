@@ -18,14 +18,31 @@ public class Utils {
 
     private static final String TAG = "Utils";
 
-    public static List<Profile> loadProfiles(Context context){
+    public static List<Candidate> loadCandidates(Context context){
         try{
             GsonBuilder builder = new GsonBuilder();
             Gson gson = builder.create();
-            JSONArray array = new JSONArray(loadJSONFromAsset(context, "profiles.json"));
-            List<Profile> profileList = new ArrayList<>();
+            JSONArray array = new JSONArray(loadJSONFromAsset(context, "job_seekers_data.json"));
+            List<Candidate> profileList = new ArrayList<>();
             for(int i=0;i<array.length();i++){
-                Profile profile = gson.fromJson(array.getString(i), Profile.class);
+                Candidate profile = gson.fromJson(array.getString(i), Candidate.class);
+                profileList.add(profile);
+            }
+            return profileList;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static List<Candidate> loadBusinesses(Context context){
+        try{
+            GsonBuilder builder = new GsonBuilder();
+            Gson gson = builder.create();
+            JSONArray array = new JSONArray(loadJSONFromAsset(context, "businesses.json"));
+            List<Candidate> profileList = new ArrayList<>();
+            for(int i=0;i<array.length();i++){
+                Candidate profile = gson.fromJson(array.getString(i), Candidate.class);
                 profileList.add(profile);
             }
             return profileList;

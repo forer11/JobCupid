@@ -5,12 +5,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.jobcupid.Profile;
+import com.example.jobcupid.Candidate;
 import com.example.jobcupid.R;
 import com.example.jobcupid.TinderCard;
 import com.example.jobcupid.Utils;
@@ -21,7 +20,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends BaseMenuActivity {
     CircleImageView profileImage;
-    private FrameLayout profileLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +30,7 @@ public class MainActivity extends BaseMenuActivity {
 
     private void setToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Shorts");
+        toolbar.setTitle("JobCupid");
         setSupportActionBar(toolbar);
 //        getSupportActionBar().setHomeAsUpIndicator(R.mipmap.icon);// set drawable icon
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -49,13 +47,16 @@ public class MainActivity extends BaseMenuActivity {
                         .setSwipeOutMsgLayoutId(R.layout.tinder_swipe_out_msg_view));
 
 
-        for(Profile profile : Utils.loadProfiles(this.getApplicationContext())){
+        for(Candidate profile : Utils.loadCandidates(this.getApplicationContext())){
             mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView));
         }
+//
+//        for(Candidate profile : Utils.loadBusinesses(this.getApplicationContext())){
+//            mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView));
+//        }
+
 
         profileImage = mSwipeView.findViewById(R.id.profile_image);
-        profileLayout = mSwipeView.findViewById(R.id.profile_image_layout);
-        setProfileImageListener();
 
         findViewById(R.id.rejectBtn).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,15 +95,6 @@ public class MainActivity extends BaseMenuActivity {
             @Override
             public boolean onQueryTextChange(String newText) {
                 return false;
-            }
-        });
-    }
-
-    private void setProfileImageListener() {
-        profileLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showSignOutDialog();
             }
         });
     }
