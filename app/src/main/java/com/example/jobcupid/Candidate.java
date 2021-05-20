@@ -29,6 +29,18 @@ public class Candidate {
     @Expose
     private String jobTitle;
 
+    public String getPreviousExperience() {
+        return previousExperience;
+    }
+
+    public void setPreviousExperience(String previousExperience) {
+        this.previousExperience = previousExperience;
+    }
+
+    @SerializedName("previous_experience")
+    @Expose
+    private String previousExperience;
+
     public String getSalary() {
         return Salary;
     }

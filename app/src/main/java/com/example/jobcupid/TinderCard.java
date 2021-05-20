@@ -26,6 +26,23 @@ public class TinderCard {
     @View(R.id.name)
     private TextView nameText;
 
+    @View(R.id.phone)
+    private TextView phoneText;
+
+    @View(R.id.jobTitle)
+    private TextView jobTitleText;
+
+    @View(R.id.jobPercentage)
+    private TextView jobPercentageText;
+
+    @View(R.id.previousExperience)
+    private TextView previousExperienceText;
+
+    @View(R.id.salary)
+    private TextView salaryText;
+
+    @View(R.id.location)
+    private TextView locationText;
 
     private Candidate mProfile;
     private Context mContext;
@@ -41,6 +58,17 @@ public class TinderCard {
     private void onResolved(){
         Glide.with(mContext).load(mProfile.getImageUrl()).into(profileImageView);
         nameText.setText(mProfile.getName());
+
+        phoneText.append(mProfile.getPhone().toString());
+        jobTitleText.append(mProfile.getJobTitle());
+        jobPercentageText.append(mProfile.getJobPercentage());
+        if(mProfile.getPreviousExperience() == null){
+            previousExperienceText.append("Not mentioned");
+        }
+        if(mProfile.getSalary() == null) {
+            salaryText.append("Not mentioned");
+        }
+        locationText.append(mProfile.getLocation());
     }
 
     @SwipeOut
