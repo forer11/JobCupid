@@ -5,21 +5,58 @@ import com.google.gson.annotations.SerializedName;
 
 public class Profile {
 
-    @SerializedName("name")
+    @SerializedName("Name")
     @Expose
     private String name;
 
-    @SerializedName("url")
+    @SerializedName("img")
     @Expose
     private String imageUrl;
 
-    @SerializedName("age")
+    @SerializedName("Phone")
     @Expose
-    private Integer age;
+    private Integer phone;
 
-    @SerializedName("location")
+    @SerializedName("Location")
     @Expose
     private String location;
+
+    @SerializedName("Salary")
+    @Expose
+    private String Salary;
+
+    @SerializedName("job_title")
+    @Expose
+    private String jobTitle;
+
+    public String getSalary() {
+        return Salary;
+    }
+
+    public void setSalary(String salary) {
+        Salary = salary;
+    }
+
+    public String getJobTitle() {
+        return jobTitle;
+    }
+
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
+    }
+
+    public String getJobPercentage() {
+        return jobPercentage;
+    }
+
+    public void setJobPercentage(String jobPercentage) {
+        this.jobPercentage = jobPercentage;
+    }
+
+    @SerializedName("job_percentage")
+    @Expose
+    private String jobPercentage;
+
 
     public String getName() {
         return name;
@@ -37,12 +74,12 @@ public class Profile {
         this.imageUrl = imageUrl;
     }
 
-    public Integer getAge() {
-        return age;
+    public Integer getPhone() {
+        return phone;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setPhone(Integer phone) {
+        this.phone = phone;
     }
 
     public String getLocation() {

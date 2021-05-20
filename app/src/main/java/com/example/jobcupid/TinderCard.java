@@ -16,17 +16,17 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeInState;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 @Layout(R.layout.tinder_card_view)
 public class TinderCard {
 
     @View(R.id.profile_image)
-    private ImageView profileImageView;
+    private CircleImageView profileImageView;
 
-    @View(R.id.nameAgeTxt)
-    private TextView nameAgeTxt;
+    @View(R.id.name)
+    private TextView nameText;
 
-    @View(R.id.locationNameTxt)
-    private TextView locationNameTxt;
 
     private Profile mProfile;
     private Context mContext;
@@ -41,8 +41,7 @@ public class TinderCard {
     @Resolve
     private void onResolved(){
         Glide.with(mContext).load(mProfile.getImageUrl()).into(profileImageView);
-        nameAgeTxt.setText(mProfile.getName() + ", " + mProfile.getAge());
-        locationNameTxt.setText(mProfile.getLocation());
+        nameText.setText(mProfile.getName());
     }
 
     @SwipeOut
