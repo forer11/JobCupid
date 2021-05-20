@@ -1,0 +1,88 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:fontFamily">@font/caviar_dreams</item>
+        <item name="colorPrimary">#F8F8F8</item>
+        <item name="android:textColor">#000000</item>
+        <item name="colorPrimaryDark">#311b92</item>
+        <item name="colorAccent">@color/indigo</item>
+        <item name="popupMenuStyle">@style/popupMenu</item>
+        <item name="android:dropDownListViewStyle">@style/PopupMenuListView</item>
+    </style>
+
+
+    <style name="SetActionsTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:fontFamily">@font/caviar_dreams</item>
+        <item name="colorPrimary">#959494</item>
+        <item name="android:textColor">#000000</item>
+        <item name="colorPrimaryDark">#311b92</item>
+        <item name="colorAccent">@color/indigo</item>
+        <item name="popupMenuStyle">@style/popupMenu</item>
+        <item name="android:dropDownListViewStyle">@style/PopupMenuListView</item>
+
+    </style>
+
+
+
+    <style name="LoginTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:fontFamily">@font/caviar_dreams</item>
+        <item name="colorPrimaryDark">#DDADD2</item>
+        <item name="popupMenuStyle">@style/popupMenu</item>
+        <item name="android:dropDownListViewStyle">@style/PopupMenuListView</item>
+
+    </style>
+
+    <style name="PopupMenuListView" parent="@style/Widget.AppCompat.ListView.DropDown">
+        <item name="android:divider">#ffffff</item>
+        <item name="android:dividerHeight">1dp</item>
+    </style>
+
+    <style name="popupMenu" parent="@style/Widget.MaterialComponents.PopupMenu">
+        <item name="android:popupBackground">@drawable/popupmenu_background</item>
+    </style>
+
+
+
+
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <!-- android:textColorPrimary is the color of the title text in the Toolbar  -->
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <!-- actionMenuTextColor is the color of the text of action (more_menu) items  -->
+        <item name="actionMenuTextColor">#FFFFFF</item>
+        <!-- Tints the input fields like checkboxes and text fields -->
+        <item name="colorAccent">@color/salmon</item>
+        <!-- Applies to views in their normal state. -->
+        <item name="colorControlNormal">@color/sandy_brown</item>
+        <!-- Applies to views in their activated state (i.e checked or switches) -->
+        <item name="colorControlActivated">@color/sea_green</item>
+        <!-- Applied to framework control highlights (i.e ripples or list selectors) -->
+        <item name="colorControlHighlight">@color/sky_blue</item>
+
+        <!-- Enable these below if you want clicking icons to trigger a ripple effect -->
+
+        <item name="selectableItemBackground">?android:selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackground</item>
+
+    </style>
+
+    <!-- This configures the styles for the title within the Toolbar  -->
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">21sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/kgs_summer_sunshine_shadow</item>
+
+    </style>
+
+    <style name="Theme.Transparent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+    </style>
+
+</resources>

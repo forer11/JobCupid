@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "404398597564",
+    "project_id": "jobcupid-384b4",
+    "storage_bucket": "jobcupid-384b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:404398597564:android:9f10fb9275d2c9360137b9",
+        "android_client_info": {
+          "package_name": "com.example.jobcupid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "404398597564-0ndahe83e60jonr1n18enap0vvef3gg5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4DeStIk3TTF-UQFscy_8zPOoLOh673SM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "404398597564-0ndahe83e60jonr1n18enap0vvef3gg5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

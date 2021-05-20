@@ -1,8 +1,10 @@
-package com.example.jobcupid;
+package com.example.jobcupid.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.jobcupid.R;
 
 public class MainActivity extends AppCompatActivity {
 
