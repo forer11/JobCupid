@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 
 public class FireBaseAuthHandler {
-    private static final String WEB_ID = "354049566538-skh0gq6hkvv53rh1udmpb37obusmivrf.apps.googleusercontent.com";
+    private static final String WEB_ID = "404398597564-0ndahe83e60jonr1n18enap0vvef3gg5.apps.googleusercontent.com";
     private Context context;
     public FirebaseUser user = null;
     public FirebaseAuth firebaseAuth;

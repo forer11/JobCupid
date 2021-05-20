@@ -144,13 +144,7 @@ public class BaseMenuActivity extends AppCompatActivity {
                         }
                     });
                 }
-                AccessToken token;
-                token = AccessToken.getCurrentAccessToken();
 
-                if (token != null) {
-                    //Means user is logged in
-                    LoginManager.getInstance().logOut();
-                }
                 Intent intent = new Intent(BaseMenuActivity.this.getBaseContext(),
                         LoginActivity.class);
                 BaseMenuActivity.this.startActivity(intent);
