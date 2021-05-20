@@ -14,6 +14,38 @@
       },
       "oauth_client": [
         {
+          "client_id": "404398597564-1sakf40e2i6feth6eb3ub64r9r6q3nhq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jobcupid",
+            "certificate_hash": "4f099a60b41f951b0cdb798dc9e9cff30de16840"
+          }
+        },
+        {
+          "client_id": "404398597564-569cccdedjhkeiobcurac8ccphmlqs6p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jobcupid",
+            "certificate_hash": "baca247d3007ea87c88512255dfa90ad18f5759e"
+          }
+        },
+        {
+          "client_id": "404398597564-n2v1osdtc6ia10vflouean49j3fuj8eh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jobcupid",
+            "certificate_hash": "51cc9d3700f39179f213722bf8a0d18aab7b6b48"
+          }
+        },
+        {
+          "client_id": "404398597564-tkkrli5smomg56kh9gj9fugmuu9pncpo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jobcupid",
+            "certificate_hash": "9e840f992de264f2ebcf92411a0edd098d7d171b"
+          }
+        },
+        {
           "client_id": "404398597564-0ndahe83e60jonr1n18enap0vvef3gg5.apps.googleusercontent.com",
           "client_type": 3
         }
