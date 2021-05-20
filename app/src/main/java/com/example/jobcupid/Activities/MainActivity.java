@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
@@ -16,7 +17,11 @@ import com.example.jobcupid.Utils;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class MainActivity extends BaseMenuActivity {
+    CircleImageView profileImage;
+    private FrameLayout profileLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +52,10 @@ public class MainActivity extends BaseMenuActivity {
         for(Profile profile : Utils.loadProfiles(this.getApplicationContext())){
             mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView));
         }
+
+        profileImage = mSwipeView.findViewById(R.id.profile_image);
+        profileLayout = mSwipeView.findViewById(R.id.profile_image_layout);
+        setProfileImageListener();
 
         findViewById(R.id.rejectBtn).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,5 +98,13 @@ public class MainActivity extends BaseMenuActivity {
         });
     }
 
+    private void setProfileImageListener() {
+        profileLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showSignOutDialog();
+            }
+        });
+    }
 
 }
