@@ -3,6 +3,7 @@ package com.example.jobcupid;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -69,5 +70,9 @@ public class Utils {
             return null;
         }
         return json;
+    }
+
+    public static void showToast(Context context, String text, boolean isLong) {
+        Toast.makeText(context, text, isLong ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT).show();
     }
 }

@@ -32,6 +32,12 @@
             android:layout_height="50dp"
             android:layout_marginLeft="30dp"
             android:background="@drawable/ic_heart"/>
+        <ImageButton
+            android:id="@+id/chatBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/dark"/>
     </LinearLayout>
     <com.mindorks.placeholderview.SwipePlaceHolderView
         android:id="@+id/swipeView"
