@@ -69,14 +69,6 @@ public class MainActivity extends BaseMenuActivity {
             }
         });
 
-        findViewById(R.id.chatBtn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this.getBaseContext(),
-                        ChatActivity.class);
-                MainActivity.this.startActivity(intent);
-            }
-        });
     }
 
     @Override
@@ -85,24 +77,29 @@ public class MainActivity extends BaseMenuActivity {
         setProfile();
 
         MenuItem searchItem = menu.findItem(R.id.search_bar);
-        SearchView searchView = (SearchView) searchItem.getActionView();
-
-        setSearchQueryTextListener(searchView);
-        return true;
-    }
-
-    private void setSearchQueryTextListener(SearchView searchView) {
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        searchItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
+            public boolean onMenuItemClick(MenuItem item) {
+                Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
+                startActivity(intent);
                 return false;
             }
         });
+        return true;
     }
+
+//    private void setSearchQueryTextListener(SearchView searchView) {
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                return false;
+//            }
+//        });
+//    }
 
 }
