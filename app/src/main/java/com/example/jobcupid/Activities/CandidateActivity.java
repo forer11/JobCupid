@@ -4,11 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.jobcupid.Candidate;
 import com.example.jobcupid.R;
+import com.example.jobcupid.TinderCard;
+import com.example.jobcupid.Utils;
+import com.mindorks.placeholderview.SwipeDecor;
+import com.mindorks.placeholderview.SwipePlaceHolderView;
 
 public class CandidateActivity extends BaseMenuActivity {
 
@@ -18,6 +24,21 @@ public class CandidateActivity extends BaseMenuActivity {
         setContentView(R.layout.activity_candidate);
         setToolbar();
 
+        SwipePlaceHolderView mSwipeView = (SwipePlaceHolderView)findViewById(R.id.swipeView);
+        Context mContext = getApplicationContext();
+
+        mSwipeView.getBuilder()
+                .setDisplayViewCount(3)
+                .setSwipeDecor(new SwipeDecor()
+                        .setPaddingTop(20)
+                        .setRelativeScale(0.01f)
+                        .setSwipeInMsgLayoutId(R.layout.tinder_swipe_in_msg_view)
+                        .setSwipeOutMsgLayoutId(R.layout.tinder_swipe_out_msg_view));
+
+        for(Candidate profile : Utils.loadBusinesses(this.getApplicationContext())){
+            mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView));
+        }
+
     }
 
     private void setToolbar() {
@@ -26,7 +47,6 @@ public class CandidateActivity extends BaseMenuActivity {
         setSupportActionBar(toolbar);
 //        getSupportActionBar().setHomeAsUpIndicator(R.mipmap.icon);// set drawable icon
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
     }
 
     @Override

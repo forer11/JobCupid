@@ -50,10 +50,6 @@ public class MainActivity extends BaseMenuActivity {
         for(Candidate profile : Utils.loadCandidates(this.getApplicationContext())){
             mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView));
         }
-//
-//        for(Candidate profile : Utils.loadBusinesses(this.getApplicationContext())){
-//            mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView));
-//        }
 
 
         profileImage = mSwipeView.findViewById(R.id.profile_image);
