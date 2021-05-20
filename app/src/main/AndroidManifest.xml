@@ -10,23 +10,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activities.CandidatePage"></activity>
         <activity android:name=".Activities.MainActivity" />
         <activity
             android:name=".Activities.OpeningScreenActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".Activities.BaseMenuActivity" />
-
         <activity
             android:name=".Activities.LoginActivity"
-            android:theme="@style/LoginTheme">
-        </activity>
-
+            android:theme="@style/LoginTheme"></activity>
     </application>
 
 </manifest>

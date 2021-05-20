@@ -26,7 +26,7 @@ public class OpeningScreenActivity extends AppCompatActivity {
     private void checkLoginStatus(FirebaseUser currentUser) {
         Intent intent;
         if (currentUser != null) {
-            intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent = new Intent(getApplicationContext(), CandidatePage.class);
             startActivity(intent);
         } else {
             intent = new Intent(getApplicationContext(), LoginActivity.class);
