@@ -17,8 +17,8 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-@Layout(R.layout.tinder_card_view)
-public class TinderCard {
+@Layout(R.layout.tinder_card_view_candidate)
+public class TinderCardBusiness {
 
     @View(R.id.profile_image)
     private CircleImageView profileImageView;
@@ -44,11 +44,14 @@ public class TinderCard {
     @View(R.id.location)
     private TextView locationText;
 
+    @View(R.id.age)
+    private TextView ageText;
+
     private Candidate mProfile;
     private Context mContext;
     private SwipePlaceHolderView mSwipeView;
 
-    public TinderCard(Context context, Candidate profile, SwipePlaceHolderView swipeView) {
+    public TinderCardBusiness(Context context, Candidate profile, SwipePlaceHolderView swipeView) {
         mContext = context;
         mProfile = profile;
         mSwipeView = swipeView;
@@ -69,6 +72,7 @@ public class TinderCard {
             salaryText.append("Not mentioned");
         }
         locationText.append(mProfile.getLocation());
+        ageText.append(String.valueOf(mProfile.getAge()));
     }
 
     @SwipeOut

@@ -1,6 +1,5 @@
 package com.example.jobcupid.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 
@@ -11,7 +10,8 @@ import android.view.MenuItem;
 
 import com.example.jobcupid.Candidate;
 import com.example.jobcupid.R;
-import com.example.jobcupid.TinderCard;
+import com.example.jobcupid.TinderCardBusiness;
+import com.example.jobcupid.TinderCardCandidate;
 import com.example.jobcupid.Utils;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
@@ -36,7 +36,7 @@ public class CandidateActivity extends BaseMenuActivity {
                         .setSwipeOutMsgLayoutId(R.layout.tinder_swipe_out_msg_view));
 
         for(Candidate profile : Utils.loadBusinesses(this.getApplicationContext())){
-            mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView));
+            mSwipeView.addView(new TinderCardBusiness(mContext, profile, mSwipeView));
         }
 
     }

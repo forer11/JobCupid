@@ -11,7 +11,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.jobcupid.Candidate;
 import com.example.jobcupid.R;
-import com.example.jobcupid.TinderCard;
+import com.example.jobcupid.TinderCardCandidate;
 import com.example.jobcupid.Utils;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
@@ -48,7 +48,7 @@ public class MainActivity extends BaseMenuActivity {
 
 
         for(Candidate profile : Utils.loadCandidates(this.getApplicationContext())){
-            mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView));
+            mSwipeView.addView(new TinderCardCandidate(mContext, profile, mSwipeView));
         }
 
 
