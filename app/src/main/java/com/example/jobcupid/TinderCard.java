@@ -2,7 +2,6 @@ package com.example.jobcupid;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -28,11 +27,11 @@ public class TinderCard {
     private TextView nameText;
 
 
-    private Profile mProfile;
+    private Candidate mProfile;
     private Context mContext;
     private SwipePlaceHolderView mSwipeView;
 
-    public TinderCard(Context context, Profile profile, SwipePlaceHolderView swipeView) {
+    public TinderCard(Context context, Candidate profile, SwipePlaceHolderView swipeView) {
         mContext = context;
         mProfile = profile;
         mSwipeView = swipeView;
