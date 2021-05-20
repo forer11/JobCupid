@@ -6,6 +6,7 @@
     android:layout_height="500dp"
     android:layout_marginBottom="50dp"
     android:orientation="vertical">
+
     <androidx.cardview.widget.CardView
         android:orientation="vertical"
         android:background="@color/white"
@@ -15,111 +16,99 @@
         app:cardCornerRadius="7dp"
         app:cardElevation="4dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/profile_image"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@null"
-                    android:src="@mipmap/teddy_bear"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="10dp"
-                    app:civ_border_color="#FFFFFF"
-                    app:civ_border_width="1dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_image"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@null"
+                        android:src="@mipmap/teddy_bear"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="10dp"
+                        app:civ_border_color="#FFFFFF"
+                        app:civ_border_width="1dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="40dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="35sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/phone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="20sp"
+                            android:text="0"
+                            android:gravity="center_horizontal"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
 
                 <TextView
-                    android:id="@+id/name"
+                    android:id="@+id/jobTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:text=""
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="25sp"
+                     />
+
+                <TextView
+                    android:id="@+id/age"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimaryDark"
-                    android:layout_margin="40dp"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
+                    android:layout_marginStart="15dp"
+                    android:text="Age: "
+                    android:layout_marginTop="15dp"
+                    android:textSize="25sp"
+                    />
+
+                <TextView
+                    android:id="@+id/jobPercentage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="15dp"
+                    android:text="Availability: "
+                    android:textSize="25sp"
+                    />
+
+                <TextView
+                    android:id="@+id/location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="Desired Location: "
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="25sp" />
+
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/phone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="15dp"
-                android:text="Phone: 0"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="25sp"
-                 />
-
-            <TextView
-                android:id="@+id/jobTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="15dp"
-                android:text="Job Title: "
-                android:textSize="25sp"
-              />
-
-            <TextView
-                android:id="@+id/jobPercentage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="15dp"
-                android:text="Job Percentage: "
-                android:textSize="25sp"
-                />
-
-            <TextView
-                android:id="@+id/previousExperience"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="15dp"
-                android:text="Previous Experience: "
-                android:textSize="25sp"
-              />
-
-            <TextView
-                android:id="@+id/salary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="15dp"
-                android:text="Salary: "
-                android:textSize="25sp"              />
-
-            <TextView
-                android:id="@+id/location"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="15dp"
-                android:text="Location: "
-                android:textSize="25sp"               />
-
-            <TextView
-                android:id="@+id/age"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="15dp"
-                android:text="Age: "
-                android:textSize="25sp"/>
-        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 </FrameLayout>

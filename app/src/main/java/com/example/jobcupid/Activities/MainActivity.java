@@ -1,6 +1,7 @@
 package com.example.jobcupid.Activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -67,6 +68,7 @@ public class MainActivity extends BaseMenuActivity {
                 mSwipeView.doSwipe(true);
             }
         });
+
     }
 
     @Override
@@ -75,24 +77,29 @@ public class MainActivity extends BaseMenuActivity {
         setProfile();
 
         MenuItem searchItem = menu.findItem(R.id.search_bar);
-        SearchView searchView = (SearchView) searchItem.getActionView();
-
-        setSearchQueryTextListener(searchView);
-        return true;
-    }
-
-    private void setSearchQueryTextListener(SearchView searchView) {
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        searchItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
+            public boolean onMenuItemClick(MenuItem item) {
+                Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
+                startActivity(intent);
                 return false;
             }
         });
+        return true;
     }
+
+//    private void setSearchQueryTextListener(SearchView searchView) {
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                return false;
+//            }
+//        });
+//    }
 
 }
