@@ -34,14 +34,16 @@ public class OpeningScreenActivity extends AppCompatActivity {
             fireStoreHandler.getUserCategory(new FireStoreHandler.FireStoreUserCategoryCallback() {
                 @Override
                 public void onCallBack(String userCategory, Boolean success) {
-                    Intent intent;
-                    if (userCategory.equals(BUSINESS_OWNER)) {
-                        intent = new Intent(getApplicationContext(), MainActivity.class);
-                    } else {
-                        intent = new Intent(getApplicationContext(), CandidateActivity.class);
+                    if (success) {
+                        Intent intent;
+                        if (userCategory.equals(BUSINESS_OWNER)) {
+                            intent = new Intent(getApplicationContext(), MainActivity.class);
+                        } else {
+                            intent = new Intent(getApplicationContext(), CandidateActivity.class);
+                        }
+                        startActivity(intent);
+                        finish();
                     }
-                    startActivity(intent);
-                    finish();
                 }
             });
         } else {
