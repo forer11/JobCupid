@@ -52,7 +52,6 @@ public class TinderCardBusiness {
         cardView.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(android.view.View v) {
-                Toast.makeText(mContext, "tttt", Toast.LENGTH_SHORT).show();
             }
         });
     }

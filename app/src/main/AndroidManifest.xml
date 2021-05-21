@@ -27,6 +27,8 @@
 
         <activity android:name=".Activities.BaseMenuActivity" />
 
+        <activity android:name=".Activities.CandidatePage" />
+
         <activity
             android:name=".Activities.LoginActivity"
             android:theme="@style/LoginTheme">
