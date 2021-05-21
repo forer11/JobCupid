@@ -1,19 +1,17 @@
 package com.example.jobcupid.Activities;
 
-import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.jobcupid.Candidate;
 import com.example.jobcupid.R;
 import com.example.jobcupid.TinderCardBusiness;
-import com.example.jobcupid.TinderCardCandidate;
 import com.example.jobcupid.Utils;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
@@ -40,6 +38,21 @@ public class CandidateActivity extends BaseMenuActivity {
         for(Candidate profile : Utils.loadBusinesses(this.getApplicationContext())){
             mSwipeView.addView(new TinderCardBusiness(mContext, profile, mSwipeView));
         }
+
+
+        findViewById(R.id.rejectBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSwipeView.doSwipe(false);
+            }
+        });
+
+        findViewById(R.id.acceptBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSwipeView.doSwipe(true);
+            }
+        });
 
     }
 

@@ -2,6 +2,7 @@ package com.example.jobcupid;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -15,37 +16,17 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeInState;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 
-import de.hdodenhof.circleimageview.CircleImageView;
-
-@Layout(R.layout.tinder_card_view_candidate)
+@Layout(R.layout.tinder_card_view_businesse)
 public class TinderCardBusiness {
 
     @View(R.id.profile_image)
-    private CircleImageView profileImageView;
+    private ImageView profileImageView;
 
-    @View(R.id.name)
-    private TextView nameText;
+    @View(R.id.nameAndLocation)
+    private TextView nameAndLocation;
 
-    @View(R.id.phone)
-    private TextView phoneText;
-
-    @View(R.id.jobTitle)
-    private TextView jobTitleText;
-
-    @View(R.id.jobPercentage)
-    private TextView jobPercentageText;
-
-    @View(R.id.previousExperience)
-    private TextView previousExperienceText;
-
-    @View(R.id.salary)
-    private TextView salaryText;
-
-    @View(R.id.location)
-    private TextView locationText;
-
-    @View(R.id.age)
-    private TextView ageText;
+    @View(R.id.jobTitleAndPhone)
+    private TextView jobTitleAndPhone;
 
     private Candidate mProfile;
     private Context mContext;
@@ -60,19 +41,8 @@ public class TinderCardBusiness {
     @Resolve
     private void onResolved(){
         Glide.with(mContext).load(mProfile.getImageUrl()).into(profileImageView);
-        nameText.setText(mProfile.getName());
-
-        phoneText.append(mProfile.getPhone().toString());
-        jobTitleText.append(mProfile.getJobTitle());
-        jobPercentageText.append(mProfile.getJobPercentage());
-        if(mProfile.getPreviousExperience() == null){
-            previousExperienceText.append("Not mentioned");
-        }
-        if(mProfile.getSalary() == null) {
-            salaryText.append("Not mentioned");
-        }
-        locationText.append(mProfile.getLocation());
-        ageText.append(String.valueOf(mProfile.getAge()));
+        nameAndLocation.setText(mProfile.getName() + " - " + mProfile.getLocation());
+        jobTitleAndPhone.append(mProfile.getJobTitle() + " - Contact Info: 0" + mProfile.getPhone());
     }
 
     @SwipeOut
