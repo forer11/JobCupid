@@ -30,7 +30,8 @@ public class MessageActivity extends DemoMessagesActivity
         setContentView(R.layout.activity_default_messages);
 
         this.messagesList = findViewById(R.id.messagesList);
-        initAdapter();
+        String msg = getIntent().getStringExtra("msg");
+        initAdapter(msg);
 
         MessageInput input = findViewById(R.id.input);
         input.setInputListener(this);
@@ -51,7 +52,7 @@ public class MessageActivity extends DemoMessagesActivity
                 MessagesFixtures.getImageMessage(), true);
     }
 
-    private void initAdapter() {
+    private void initAdapter(String msg) {
         super.messagesAdapter = new MessagesListAdapter<>(super.senderId, super.imageLoader);
         super.messagesAdapter.enableSelectionMode(this);
 //        super.messagesAdapter.setLoadMoreListener(this);
@@ -60,7 +61,7 @@ public class MessageActivity extends DemoMessagesActivity
 //                        message.getUser().getName() + " avatar click",
 //                        false));
         this.messagesList.setAdapter(super.messagesAdapter);
-        onSubmit("Hi! We have a position that looks just for you, do you want to chat and hear more details?");
+        onSubmit(msg);
     }
 
     @Override

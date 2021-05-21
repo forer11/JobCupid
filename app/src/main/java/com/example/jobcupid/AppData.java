@@ -18,6 +18,7 @@ public class AppData extends Application{
     public FireStoreHandler fireStoreHandler;
     public FireBaseAuthHandler fireBaseAuthHandler;
     private Context context;
+    public Candidate candidate;
 
     @Override
     public void onCreate() {

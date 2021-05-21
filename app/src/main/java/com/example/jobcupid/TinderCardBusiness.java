@@ -4,6 +4,9 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.cardview.widget.CardView;
 
 import com.bumptech.glide.Glide;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
@@ -28,6 +31,9 @@ public class TinderCardBusiness {
     @View(R.id.jobTitleAndPhone)
     private TextView jobTitleAndPhone;
 
+    @View(R.id.cardView)
+    private CardView cardView;
+
     private Candidate mProfile;
     private Context mContext;
     private SwipePlaceHolderView mSwipeView;
@@ -43,6 +49,11 @@ public class TinderCardBusiness {
         Glide.with(mContext).load(mProfile.getImageUrl()).into(profileImageView);
         nameAndLocation.setText(mProfile.getName() + " - " + mProfile.getLocation());
         jobTitleAndPhone.append(mProfile.getJobTitle() + " - Contact Info: 0" + mProfile.getPhone());
+        cardView.setOnClickListener(new android.view.View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View v) {
+            }
+        });
     }
 
     @SwipeOut

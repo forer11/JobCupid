@@ -22,9 +22,10 @@ import static com.example.jobcupid.Activities.LoginActivity.BUSINESS_OWNER;
 
 public class ChatActivity extends DemoDialogsActivity {
 
-    public static void open(Context context) {
+    public static void open(Context context, String msg) {
         Intent intent = new Intent(context,
                 MessageActivity.class);
+        intent.putExtra("msg", msg);
         context.startActivity(intent);
     }
 
@@ -46,7 +47,7 @@ public class ChatActivity extends DemoDialogsActivity {
 
     @Override
     public void onDialogClick(Dialog dialog) {
-        ChatActivity.open(this);
+        ChatActivity.open(this, dialog.getLastMessage().getText());
     }
 
     private void initAdapter() {
@@ -75,7 +76,7 @@ public class ChatActivity extends DemoDialogsActivity {
         User user1 = new User("1", "hey", "https://media-cdn.tripadvisor.com/media/photo-s/16/c3/0c/36/getlstd-property-photo.jpg", true);
         ArrayList<User> users1 = new ArrayList<>();
         users1.add(user1);
-        Message msg1 = new Message("msg1", user1, "Hi, nice to meet you! Would you like to work in a cool bar?");
+        Message msg1 = new Message("msg1", user1, "It's a match!");
         Dialog dialog1 = new Dialog("1", "Bar 55", "https://media-cdn.tripadvisor.com/media/photo-s/16/c3/0c/36/getlstd-property-photo.jpg", users1, msg1, 1);
         onNewDialog(dialog1);
 
@@ -95,19 +96,20 @@ public class ChatActivity extends DemoDialogsActivity {
     }
 
     private void addDialogsForBusiness() {
+
+        User user2 = new User("2", "hey", "https://media-exp1.licdn.com/dms/image/C4E03AQEG6dlDaZRfkQ/profile-displayphoto-shrink_400_400/0/1554212015600?e=1626912000&v=beta&t=IWbru0G6vJ5Qz5wnQGB2oyiW8tnths1Q5maP_AO8Rus", true);
+        ArrayList<User> users2 = new ArrayList<>();
+        users2.add(user2);
+        Message msg2 = new Message("msg2", user2, "It's a match!");
+        Dialog dialog2 = new Dialog("2", "Lior Forer", "https://media-exp1.licdn.com/dms/image/C4E03AQEG6dlDaZRfkQ/profile-displayphoto-shrink_400_400/0/1554212015600?e=1626912000&v=beta&t=IWbru0G6vJ5Qz5wnQGB2oyiW8tnths1Q5maP_AO8Rus", users2, msg2, 1);
+        onNewDialog(dialog2);
+
         User user1 = new User("1", "hey", "https://images.generated.photos/vck4kSWJHS3tDJ1gU31vOxl4HksUTqmmRmkePSz9JO0/rs:fit:256:256/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzAwOTkyMDMuanBn.jpg", true);
         ArrayList<User> users1 = new ArrayList<>();
         users1.add(user1);
         Message msg1 = new Message("msg1", user1, "Hi, do you have some open positions?");
-        Dialog dialog1 = new Dialog("1", "Nir Vaknin", "https://images.generated.photos/vck4kSWJHS3tDJ1gU31vOxl4HksUTqmmRmkePSz9JO0/rs:fit:256:256/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzAwOTkyMDMuanBn.jpg", users1, msg1, 1);
+        Dialog dialog1 = new Dialog("1", "Nir Vaknin", "https://images.generated.photos/vck4kSWJHS3tDJ1gU31vOxl4HksUTqmmRmkePSz9JO0/rs:fit:256:256/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzAwOTkyMDMuanBn.jpg", users1, msg1, 0);
         onNewDialog(dialog1);
-
-        User user2 = new User("2", "hey", "https://images.generated.photos/vrZPxATvSsWcuOpsMrJLlBU0nJHGfJU7UB61lmEy9VE/rs:fit:256:256/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzA2NzYwMzAuanBn.jpg", true);
-        ArrayList<User> users2 = new ArrayList<>();
-        users2.add(user2);
-        Message msg2 = new Message("msg2", user2, "Hey, my name is Elad and I'm looking for a part time job.");
-        Dialog dialog2 = new Dialog("2", "Elad Moshe", "https://images.generated.photos/vrZPxATvSsWcuOpsMrJLlBU0nJHGfJU7UB61lmEy9VE/rs:fit:256:256/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzA2NzYwMzAuanBn.jpg", users2, msg2, 0);
-        onNewDialog(dialog2);
 
         User user3 = new User("3", "hey", "https://images.generated.photos/GwR2LK1fKp6FlVZUtu63s7NGgXcnfLg9BYwrTumCBa0/rs:fit:256:256/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzA3ODAwMjcuanBn.jpg", true);
         ArrayList<User> users3 = new ArrayList<>();

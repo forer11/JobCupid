@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.jobcupid.AppData;
 import com.example.jobcupid.Candidate;
 //import com.example.jobcupid.Profile;
 import com.example.jobcupid.R;
@@ -19,17 +20,9 @@ public class CandidatePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_candidate_page);
+        AppData appData = (AppData)getApplicationContext();
+        Candidate profile = appData.candidate;
 
-        Candidate profile = new Candidate();
-        profile.setName("Nir Vaknin");
-        profile.setImageUrl("https://images.generated.photos/vck4kSWJHS3tDJ1gU31vOxl4HksUTqmmRmkePSz9JO0/rs:fit:256:256/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzAwOTkyMDMuanBn.jpg");
-        profile.setPhone(543377776);
-        profile.setAge(35);
-        profile.setSalary("50");
-        profile.setJobTitle("Bartender");
-        profile.setLocation("Kfar Saba");
-        profile.setJobPercentage("Part time");
-        profile.setFreeText("");
         ImageView img_profile = findViewById(R.id.imageView);
         Glide.with(CandidatePage.this).load(profile.getImageUrl()).into(img_profile);
         TextView name= findViewById(R.id.name);
