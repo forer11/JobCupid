@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.cardview.widget.CardView;
 
 import com.bumptech.glide.Glide;
+import com.example.jobcupid.Activities.BaseMenuActivity;
 import com.example.jobcupid.Activities.CandidatePage;
 import com.example.jobcupid.Activities.LoginActivity;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
@@ -20,6 +21,7 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeIn;
 import com.mindorks.placeholderview.annotations.swipe.SwipeInState;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
+import com.ndroid.nadim.sahel.CoolToast;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -96,7 +98,13 @@ public class TinderCardCandidate {
 
     @SwipeIn
     private void onSwipeIn(){
-        Log.d("EVENT", "onSwipedIn");
+        if (mProfile.getEmail().equals("forer11@gmail.com")) {
+            Log.d("dddddd", "onSwipedIn");
+            CoolToast coolToast = new CoolToast(mContext);
+            coolToast.make("Its a Match!!", CoolToast.SUCCESS);
+
+        }
+
     }
 
     @SwipeInState

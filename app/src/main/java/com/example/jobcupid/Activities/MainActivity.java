@@ -49,7 +49,7 @@ public class MainActivity extends BaseMenuActivity {
 
 
         for(Candidate profile : Utils.loadCandidates(this.getApplicationContext())){
-            mSwipeView.addView(new TinderCardCandidate(mContext, profile, mSwipeView));
+            mSwipeView.addView(new TinderCardCandidate(MainActivity.this, profile, mSwipeView));
         }
 
 
