@@ -76,7 +76,7 @@ public class ChatActivity extends DemoDialogsActivity {
         User user1 = new User("1", "hey", "https://media-cdn.tripadvisor.com/media/photo-s/16/c3/0c/36/getlstd-property-photo.jpg", true);
         ArrayList<User> users1 = new ArrayList<>();
         users1.add(user1);
-        Message msg1 = new Message("msg1", user1, "Hi, nice to meet you! Would you like to work in a cool bar?");
+        Message msg1 = new Message("msg1", user1, "It's a match!");
         Dialog dialog1 = new Dialog("1", "Bar 55", "https://media-cdn.tripadvisor.com/media/photo-s/16/c3/0c/36/getlstd-property-photo.jpg", users1, msg1, 1);
         onNewDialog(dialog1);
 
